@@ -26,9 +26,12 @@ function rollDice() {
 
     for (let value = 1; value <= 6; value++) {
         const item = document.createElement("div"); item.className = "breakdown-item"
-            ; item.innerHTML = `<strong>${value}</strong><br>Count: ${counts[value - 1]}`;
+            ; item.innerHTML = `<strong>${value}</strong>: ${counts[value - 1]}`;
         breakdownGrid.appendChild(item);
     }
 }
 
 // Automatically roll 1 die when the pa
+window.addEventListener("DOMContentLoaded", () => {
+    rollDice();
+});

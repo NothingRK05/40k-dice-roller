@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warhammer 40K Dice Roller</title>
     <link rel="stylesheet" href="index.css">
-    <script src="index.js" defer></script>
+    <script src="index.js"></script>
 </head>
 
 <body>
@@ -16,8 +16,8 @@
         Warhammer 40K Dice Roller
     </header>
 
-    <div class="container">
-
+    <div class="container" onload="rollDice(1)">
+        
         <div class="controls">
             <div class="preset-buttons">
                 <button onclick="setDice(1)">1</button>
@@ -29,10 +29,10 @@
 
             <div class="manual-input">
                 Number of Dice:
-                <input type="number" id="numDice" min="1" value="1">
+                    <input type="number" id="numDice" value="1">
             </div>
 
-            <button id="rollButton">Roll Dice</button>
+            <button id="rollButton" onclick="rollDice()">Roll</button>
         </div>
 
         <div class="dice-tray" id="diceTray"></div>
@@ -46,6 +46,7 @@
             <div class="summary">
                 <h2>Total Summary</h2>
                 <div>Total Dice Rolled: <span id="totalDice">0</span></div>
+                <h2>Sum</h2>
                 <div class="total-sum" id="totalSum">0</div>
             </div>
         </div>
