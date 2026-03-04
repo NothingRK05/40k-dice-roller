@@ -3,6 +3,7 @@ function setDice(amount) {
     rollDice();
 }
 
+
 function rollDice() {
     const numDice = parseInt(document.getElementById("numDice").value) || 1;
     const tray = document.getElementById("diceTray");
