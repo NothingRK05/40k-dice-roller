@@ -19,16 +19,23 @@
     <div class="container">
 
         <div class="controls">
-            <div>
-                Number of Dice:
-                <input type="number" id="numDice" min="1" value="10">
+            <div class="preset-buttons">
+                <button onclick="setDice(1)">1</button>
+                <button onclick="setDice(2)">2</button>
+                <button onclick="setDice(5)">5</button>
+                <button onclick="setDice(10)">10</button>
+                <button onclick="setDice(20)">20</button>
             </div>
+
+            <div class="manual-input">
+                Number of Dice:
+                <input type="number" id="numDice" min="1" value="1">
+            </div>
+
             <button id="rollButton">Roll Dice</button>
         </div>
 
-        <div class="dice-tray" id="diceTray">
-            Roll the dice to see results
-        </div>
+        <div class="dice-tray" id="diceTray"></div>
 
         <div class="results">
             <div class="breakdown">
@@ -48,3 +55,4 @@
 </body>
 
 </html>
+

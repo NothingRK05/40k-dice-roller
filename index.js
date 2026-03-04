@@ -1,5 +1,7 @@
-
-document.getElementById("rollButton").addEventListener("click", rollDice);
+function setDice(amount) {
+    document.getElementById("numDice").value = amount;
+    rollDice();
+}
 
 function rollDice() {
     const numDice = parseInt(document.getElementById("numDice").value) || 1;
@@ -28,3 +30,5 @@ function rollDice() {
         breakdownGrid.appendChild(item);
     }
 }
+
+// Automatically roll 1 die when the pa

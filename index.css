@@ -22,15 +22,31 @@ header {
 
 .controls {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
     align-items: center;
+    justify-content: space-between;
     background-color: #1a1a1a;
     padding: 20px;
     border-radius: 12px;
     margin-bottom: 25px;
 }
 
-.controls input {
+.preset-buttons button {
+    padding: 8px 15px;
+    font-weight: bold;
+    background-color: #333;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+.preset-buttons button:hover {
+    background-color: #555;
+}
+
+.manual-input input {
     width: 80px;
     padding: 8px;
     font-size: 16px;
@@ -40,7 +56,7 @@ header {
     border-radius: 6px;
 }
 
-.controls button {
+#rollButton {
     padding: 10px 25px;
     font-size: 16px;
     font-weight: bold;
@@ -52,7 +68,7 @@ header {
     transition: background 0.2s ease;
 }
 
-.controls button:hover {
+#rollButton:hover {
     background-color: #800000;
 }
 
@@ -109,10 +125,6 @@ header {
     padding: 15px;
     border-radius: 10px;
     text-align: center;
-}
-
-.summary h2 {
-    margin-top: 0;
 }
 
 .total-sum {
