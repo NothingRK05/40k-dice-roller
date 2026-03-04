@@ -36,3 +36,7 @@ function rollDice() {
 window.addEventListener("DOMContentLoaded", () => {
     rollDice();
 });
+
+window.onload = function () {
+    document.getElementById("rollButton").focus();
+};
