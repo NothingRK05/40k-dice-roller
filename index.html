@@ -5,132 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warhammer 40K Dice Roller</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #0f0f0f;
-            color: white;
-        }
-
-        header {
-            background-color: #b30000;
-            padding: 20px;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 20px;
-        }
-
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #1a1a1a;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-        }
-
-        .controls input {
-            width: 80px;
-            padding: 8px;
-            font-size: 16px;
-            background-color: #2a2a2a;
-            border: 1px solid #444;
-            color: white;
-            border-radius: 6px;
-        }
-
-        .controls button {
-            padding: 10px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            background-color: #b30000;
-            border: none;
-            border-radius: 8px;
-            color: white;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-
-        .controls button:hover {
-            background-color: #800000;
-        }
-
-        .dice-tray {
-            background-color: #8b0000;
-            min-height: 250px;
-            border-radius: 16px;
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 25px;
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
-        }
-
-        .die {
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            color: black;
-            font-weight: bold;
-            font-size: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-        }
-
-        .results {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .breakdown,
-        .summary {
-            background-color: #1a1a1a;
-            padding: 20px;
-            border-radius: 12px;
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .breakdown-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .breakdown-item {
-            background-color: #2a2a2a;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .summary h2 {
-            margin-top: 0;
-        }
-
-        .total-sum {
-            font-size: 40px;
-            font-weight: bold;
-            color: #ff4d4d;
-        }
-    </style>
 </head>
-
+<link rel="stylesheet" href="index.css">
 <body>
 
     <header>
@@ -144,7 +20,7 @@
                 Number of Dice:
                 <input type="number" id="numDice" min="1" value="10">
             </div>
-            <button onclick="rollDice()">Roll Dice</button>
+            <button onload="rollDice()">Roll Dice</button>
         </div>
 
         <div class="dice-tray" id="diceTray">
@@ -166,43 +42,8 @@
 
     </div>
 
-    <script>
-        function rollDice() {
-            const numDice = parseInt(document.getElementById("numDice").value) || 1;
-            const tray = document.getElementById("diceTray");
-            const breakdownGrid = document.getElementById("breakdownGrid");
-            const totalSumDisplay = document.getElementById("totalSum");
-            const totalDiceDisplay = document.getElementById("totalDice");
-
-            tray.innerHTML = "";
-            breakdownGrid.innerHTML = "";
-
-            let rolls = [];
-
-            for (let i = 0; i < numDice; i++) {
-                const roll = Math.floor(Math.random() * 6) + 1;
-                rolls.push(roll);
-
-                const die = document.createElement("div");
-                die.className = "die";
-                die.textContent = roll;
-                tray.appendChild(die);
-            }
-
-            let totalSum = rolls.reduce((a, b) => a + b, 0);
-            totalSumDisplay.textContent = totalSum;
-            totalDiceDisplay.textContent = rolls.length;
-
-            for (let value = 1; value <= 6; value++) {
-                const count = rolls.filter(r => r === value).length;
-
-                const item = document.createElement("div");
-                item.className = "breakdown-item";
-                item.innerHTML = `<strong>${value}</strong><br>Count: ${count}`;
-                breakdownGrid.appendChild(item);
-            }
-        }
-    </script>
+    
+    <script src="index.js"></script>
 
 </body>
 
